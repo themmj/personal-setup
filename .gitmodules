@@ -1,0 +1,3 @@
+[submodule "setup-helper"]
+	path = setup-helper
+	url = git@github.com:themmj/setup-helper.git
