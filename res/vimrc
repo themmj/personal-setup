@@ -9,6 +9,8 @@ set noshowmode
 set showcmd
 set bs=2
 
+set wildmenu
+
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
 
