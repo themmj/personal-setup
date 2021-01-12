@@ -9,6 +9,12 @@ set noshowmode
 set showcmd
 set bs=2
 
+set nocompatible
+filetype plugin on
+syntax on
+
+let mapleader = ' '
+
 set wildmenu
 
 au BufWinLeave ?* mkview
@@ -37,6 +43,14 @@ map <F4> :NERDTreeToggle<CR>
 
 "   gitgutter
 Plug 'airblade/vim-gitgutter'
+
+"   cheat.sh
+Plug 'dbeniamine/cheat.sh-vim'
+
+"   vimwiki
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/development/wiki/md/',
+                      \ 'path_html': '~/development/wiki/html/'}]
 
 "   YCM
 function! BuildYCM(info)
