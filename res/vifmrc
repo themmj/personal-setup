@@ -172,7 +172,6 @@ command! reload :write | restart
 
 " Pdf
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
@@ -208,9 +207,10 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
         \ {View using mplayer}
         \ mplayer %f,
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]
-         \ ffprobe -pretty %c 2>&1
+        \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+        \ vifmimg videopreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " Web
 filextype *.html,*.htm
@@ -237,8 +237,14 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ gpicview %c,
         \ {View in shotwell}
         \ shotwell,
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ convert -identify %f -verbose /dev/null
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+fileviewer *.gif
+        \ vifmimg gifpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " OpenRaster
 filextype *.ora
@@ -455,7 +461,7 @@ nnoremap <f8> :delete<cr>
 
 " Add additional place to look for executables
 "
-" let $PATH = $HOME.'/bin/fuse:'.$PATH
+let $PATH = /home/mmj/development/tools/vifmimg.$PATH
 
 " Block particular shortcut
 "
