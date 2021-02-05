@@ -6,4 +6,4 @@
 .ycm_extra_conf.py
 *.swp
 *.o
-
+compile_commands.json
